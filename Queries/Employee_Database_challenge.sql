@@ -1,3 +1,5 @@
+--DELIVERABLE 1
+
 --Create tables for Employee_Database_challenge
 CREATE TABLE employees (
      emp_no INT NOT NULL,
@@ -60,3 +62,42 @@ GROUP BY title
 ORDER BY COUNT DESC;
 
 SELECT * FROM retiring_titles;
+
+
+--DELIVERABLE 2
+
+CREATE TABLE dept_emp(
+	emp_no INT NOT NULL,
+	dept_no VARCHAR NOT NULL,
+	from_date DATE NOT NULL,
+	to_date DATE NOT NULL,
+FOREIGN KEY (emp_no) REFERENCES employees (emp_no)	
+);
+
+--Retrieve the emp_no, first_name, last_name, and birth_date columns from the Employees table.
+--Retrieve the from_date and to_date columns from the Department Employee table.
+--Retrieve the title column from the Titles table.
+--Retrieve the first occurrence of the employee number.
+SELECT DISTINCT ON (emp_no) em.emp_no,
+		em.first_name,
+		em.last_name,
+		em.birth_date,
+		de.from_date,
+		de.to_date, 
+		tl.title
+--Create a new table 
+INTO mentorship_eligibilty
+FROM employees as em
+--Join the Employees and the Department Employee tables on the primary key.
+--Join the Employees and the Titles tables on the primary key.
+INNER JOIN dept_emp as de
+ON (em.emp_no = de.emp_no)
+INNER JOIN titles as tl
+ON (em.emp_no = tl.emp_no)
+--Filter the data on the to_date column to all the current employees.
+WHERE (de.to_date = '9999-01-01')
+--Filter the data on the birth_date columns to get all the employees whose birth dates are between January 1, 1965 and December 31, 1965.
+AND (birth_date BETWEEN '1965-01-01' AND '1965-12-31')
+ORDER by em.emp_no;
+
+SELECT * FROM mentorship_eligibilty;
