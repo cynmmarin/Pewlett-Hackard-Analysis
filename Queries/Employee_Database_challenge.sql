@@ -101,3 +101,16 @@ AND (birth_date BETWEEN '1965-01-01' AND '1965-12-31')
 ORDER by em.emp_no;
 
 SELECT * FROM mentorship_eligibilty;
+
+--Count amoung of retiring titles
+SELECT SUM(count)
+FROM retiring_titles;
+
+--Retrieve the number employees that qualify for mentorship by department
+SELECT COUNT(me.title), me.title
+INTO mentorship_eligibilty_bytitle
+FROM mentorship_eligibilty as me
+GROUP BY title
+ORDER BY COUNT DESC;
+
+SELECT * FROM mentorship_eligibilty_bytitle;
