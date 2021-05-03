@@ -29,7 +29,7 @@ Now, let’s find out the mentorship eligibility. To do so, we need to create a 
 
 ![mentorship_eligibility_table](https://github.com/cynmmarin/Pewlett-Hackard-Analysis/blob/f659c1d80ba449f02a66042abec8ff25aaa15a9c/Images/mentorship_eligibility_table.png)
 
-Summary
+## Summary
 In order to determine the How many roles will need to be filled as the "silver tsunami" begins to make an impact, we need to add up the count for the retiring titles the total amount of roles that will need to be filled is 90,398, this number is found by. Lastly, to determine if there are enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees we need to 
 
 ![Summary code 1](https://github.com/cynmmarin/Pewlett-Hackard-Analysis/blob/f659c1d80ba449f02a66042abec8ff25aaa15a9c/Images/Summary%20Code%201.png)
